@@ -1,22 +1,15 @@
 var main = function() {
     "use strict";
-    $(".tabs a:nth-child(1)").on("click", function() {
-        $(".tabs span").removeClass("active");
-        $(".tabs a:nth-child(1) span").addClass("active");
-        $("main .content").empty();
-        return false;
-    })
-    $(".tabs a:nth-child(2)").on("click", function() {
-        $(".tabs span").removeClass("active");
-        $(".tabs a:nth-child(2) span").addClass("active");
-        $("main .content").empty();
-        return false;
-    })
-    $(".tabs a:nth-child(3)").on("click", function() {
-        $(".tabs span").removeClass("active");
-        $(".tabs a:nth-child(3) span").addClass("active");
-        $("main .content").empty();
-        return false;
-    })
+
+
+var tabNumber;
+    for (tabNumber = 1; tabNumber <= 3; tabNumber++) {
+        var tabSelector = ".tabs a:nth-child(" + tabNumber + ") span";
+        $(tabSelector).on("click", function() {
+            $(".tabs span").removeClass("active");
+            $(this).addClass("active");
+            return false;
+        })
+    }
 }
 $(document).ready(main);
